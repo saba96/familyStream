@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Stream extends Component {
   render() {
@@ -8,6 +9,10 @@ class Stream extends Component {
       </div>
     );
   }
+}
+
+Stream.propTypes = {
+  images: PropTypes.array.isRequired
 }
 
 export default Stream;
