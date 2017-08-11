@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
 const uploadImages = (state, action) => {
   let newState = Object.assign({}, state);
   console.log(state);
-  fetch('http://localhost:9000/images', {
+  fetch('/images', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
