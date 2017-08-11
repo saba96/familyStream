@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const dragover_handler = (event) => {
+  event.preventDefault();
   console.log('DRAGOVER EVENT', event);
 }
 
 const receivedImage = (event) => {
+  event.preventDefault();
   console.log('RECEIVED IMAGE EVENT', event);
 }
 
