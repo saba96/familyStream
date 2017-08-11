@@ -1,5 +1,13 @@
-body {
-  margin: 0;
-  padding: 0;
+html {
+  height: 90%;
+  background-color: #265B6A;
   font-family: sans-serif;
 }
+
+#stream-container {
+}
+
+#stream {
+  background-color: #447684;
+}
+

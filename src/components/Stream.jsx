@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Stream extends Component {
   render() {
     return (
-      <div>
+      <div id='stream'>
         IMAGE STREAM HERE
       </div>
     );

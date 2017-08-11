@@ -6,8 +6,11 @@ import Stream from './Stream';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Stream />
+      <div className='App'>
+        <div className='stream-container'>
+          #IMAGESTREAM
+          <Stream />
+        </div>
       </div>
     );
   }
