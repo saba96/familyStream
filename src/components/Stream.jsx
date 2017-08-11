@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const dragover_handler = (event) => {
+const dragover_handler = (props, event) => {
   event.preventDefault();
   console.log('DRAGOVER EVENT', event);
 }
 
-const drop_handler = (event) => {
+const drop_handler = (props, event) => {
   event.preventDefault();
   console.log('RECEIVED IMAGE EVENT', event);
 
-  var dt = event.dataTransfer;
+  let dt = event.dataTransfer;
+  let files = [];
+
+  // If using the new implementation
   if (dt.items) {
-    for (var i=0; i < dt.items.length; i++) {
+    for (let i=0; i < dt.items.length; i++) {
       if (dt.items[i].kind === "file") {
-        var f = dt.items[i].getAsFile();
-        console.log("... file[" + i + "].name = " + f.name);
+        files.push(dt.items[i].getAsFile());
       }
     }
-  } else {
-    for (var j=0; j < dt.files.length; j++) {
-      console.log("... file[" + i + "].name = " + dt.files[j].name);
+  } else { // In case of old implementation
+    for (let i=0; i < dt.files.length; i++) {
+      console.log("... file[" + i + "].name = " + dt.files[i].name);
     }
   }
+
+  console.log(props);
+  props.onReceiveImages(files);
 }
 
-const dragend_handler = (event) => {
+const dragend_handler = (props, event) => {
   console.log('DRAGEND EVENT');
   // Remove all of the drag data
   var dt = event.dataTransfer;
@@ -41,13 +46,20 @@ const dragend_handler = (event) => {
 }
 
 class Stream extends Component {
+  constructor(props) {
+    super(props);
+
+    console.log(props);
+  }
+
   render() {
+  console.log(this.props);
     return (
       <div
         id='stream'
-        onDrop={drop_handler}
-        onDragOver={dragover_handler}
-        onDragEnd={dragend_handler}
+        onDrop={event => drop_handler(this.props, event)}
+        onDragOver={event => dragover_handler(this.props, event)}
+        onDragEnd={event => dragend_handler(this.props, event)}
       >
         IMAGE STREAM HERE
       </div>
@@ -57,7 +69,7 @@ class Stream extends Component {
 
 Stream.propTypes = {
   images: PropTypes.array.isRequired,
-  //receivedImages: PropTypes.func.isRequired
+  onReceiveImages: PropTypes.func.isRequired
 }
 
 export default Stream;

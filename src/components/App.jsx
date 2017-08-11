@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Stream from './Stream';
+import Stream from '../containers/Stream';
 
 class App extends Component {
   render() {
