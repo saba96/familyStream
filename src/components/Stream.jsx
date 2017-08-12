@@ -4,47 +4,35 @@ import PropTypes from 'prop-types';
 
 class Stream extends Component {
   dragover_handler = (event) => {
+    event.stopPropagation();
     event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
     console.log('DRAGOVER EVENT', event);
   }
 
   drop_handler = (event) => {
+    event.stopPropagation();
     event.preventDefault();
     console.log('RECEIVED IMAGE EVENT', event);
 
     let dt = event.dataTransfer;
-    let files = [];
+    let files = dt.files;
+    console.log(dt);
 
-    // If using the new implementation
-    if (dt.items) {
-      for (let i=0; i < dt.items.length; i++) {
-        if (dt.items[i].kind === "file") {
-          files.push(dt.items[i].getAsFile());
-        }
-      }
-    } else { // In case of old implementation
-      for (let i=0; i < dt.files.length; i++) {
-        console.log("... file[" + i + "].name = " + dt.files[i].name);
-      }
-    }
+		for (var i=0, file; file=files[i]; i++) {
+			if (file.type.match(/image.*/)) {
+				var reader = new FileReader();
 
-    console.log(this.props);
-    this.props.onReceiveImages(files);
-  }
+				reader.onload = function(e2) {
+					// finished reading file data.
+					var img = document.createElement('img');
+					img.src= e2.target.result;
+					document.body.appendChild(img);
+				}
 
-  dragend_handler = (event) => {
-    console.log('DRAGEND EVENT');
-    // Remove all of the drag data
-    var dt = event.dataTransfer;
-    if (dt.items) {
-      // Use DataTransferItemList interface to remove the drag data
-      for (var i = 0; i < dt.items.length; i++) {
-        dt.items.remove(i);
-      }
-    } else {
-      // Use DataTransfer interface to remove the drag data
-      event.dataTransfer.clearData();
-    }
+				reader.readAsDataURL(file); // start reading the file data.
+			}
+		}
   }
 
   render() {

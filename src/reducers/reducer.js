@@ -16,6 +16,7 @@ const reducer = (state = initialState, action) => {
 
 const uploadImages = (state, action) => {
   let newState = Object.assign({}, state);
+  console.log(action.images);
   console.log(state);
   fetch('/images', {
     method: 'POST',
