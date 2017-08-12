@@ -17,26 +17,32 @@ class Stream extends Component {
 
     let dt = event.dataTransfer;
     let files = dt.files;
+    let images = [];
     console.log(dt);
 
-		for (var i=0, file; file=files[i]; i++) {
-			if (file.type.match(/image.*/)) {
-				var reader = new FileReader();
+    for (let i = 0, file; file=files[i]; i++) {
+      if (file.type.match(/image.*/)) {
+        let reader = new FileReader();
+        let image;
 
-				reader.onload = function(e2) {
-					// finished reading file data.
-					var img = document.createElement('img');
-					img.src= e2.target.result;
-					document.body.appendChild(img);
-				}
+        reader.onload = (e2) => {
+          // finished reading file data.
+          //var img = document.createElement('img');
+          //img.src= e2.target.result;
+          //document.body.appendChild(img);
+          image = e2.target.result;
+          images.push(image);
+          console.log(images);
+          this.props.onReceiveImages(images);
+        }
 
-				reader.readAsDataURL(file); // start reading the file data.
-			}
-		}
+        reader.readAsDataURL(file); // start reading the file data.
+      }
+    }
   }
 
   render() {
-  console.log(this.props);
+    console.log(this.props);
     return (
       <div
         id='stream'
