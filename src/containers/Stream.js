@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Stream from '../components/Stream';
-import { uploadImage } from '../actions/Stream';
+import { uploadImage, setImages } from '../actions/Stream';
 
 const mapStateToProps = state => {
   return {
@@ -13,6 +13,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onReceiveImage: (image) => {
       dispatch(uploadImage(image));
+    },
+    onGetReqResponse: (images) => {
+      dispatch(setImages(images));
     }
   }
 }

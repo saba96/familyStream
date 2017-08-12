@@ -2,6 +2,28 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Stream extends Component {
+  componentDidMount = () => {
+    setInterval(this.getImages, 1000);
+  }
+
+  getImages = async () => {
+    let images = await new Promise((resolve, reject) => {
+      fetch('/images', {
+        method: 'GET', 
+        headers: {
+          Accept: 'application/json'
+        }
+      }).then((response) => {
+        let parsedResponse = response.json();
+        parsedResponse.then((data) => {
+          resolve(data);
+        });
+      });
+    });
+
+    this.props.onGetReqResponse(images);
+  }
+
   dragover_handler = (event) => {
     event.stopPropagation();
     event.preventDefault();
@@ -37,7 +59,7 @@ class Stream extends Component {
         onDragOver={this.dragover_handler}
         onDragEnd={this.dragend_handler}
       >
-        IMAGE STREAM HERE
+        {this.props.images.map((imageData, idx) => <img src={imageData}></img>)}
       </div>
     );
   }
@@ -45,7 +67,8 @@ class Stream extends Component {
 
 Stream.propTypes = {
   images: PropTypes.array.isRequired,
-  onReceiveImage: PropTypes.func.isRequired
+  onReceiveImage: PropTypes.func.isRequired,
+  onGetReqResponse: PropTypes.func.isRequired
 }
 
 export default Stream;
