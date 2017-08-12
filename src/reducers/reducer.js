@@ -4,8 +4,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'UPLOAD_IMAGES':
-      return uploadImages(state, action);
+    case 'UPLOAD_IMAGE':
+      return uploadImage(state, action);
     default:
       console.log('ACTION:', action);
       console.log('STATE:', state);
@@ -14,9 +14,9 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-const uploadImages = (state, action) => {
+const uploadImage = (state, action) => {
   let newState = Object.assign({}, state);
-  console.log(action.images);
+  console.log(action.image);
   console.log(state);
   fetch('/images', {
     method: 'POST',
@@ -25,7 +25,7 @@ const uploadImages = (state, action) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      images: action.images
+      image: action.image
     })
   });
   return newState;

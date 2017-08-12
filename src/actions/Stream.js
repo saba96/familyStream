@@ -1,7 +1,7 @@
-export function uploadImages(images) {
-  console.log(images);
+export function uploadImage(image) {
+  console.log(image);
   return {
-    type: 'UPLOAD_IMAGES',
-    images
+    type: 'UPLOAD_IMAGE',
+    image
   }
 }

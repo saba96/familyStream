@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Stream from '../components/Stream';
-import { uploadImages } from '../actions/Stream';
+import { uploadImage } from '../actions/Stream';
 
 const mapStateToProps = state => {
   return {
@@ -11,8 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onReceiveImages: (images) => {
-      dispatch(uploadImages(images));
+    onReceiveImage: (image) => {
+      dispatch(uploadImage(image));
     }
   }
 }

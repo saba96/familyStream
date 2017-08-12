@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 class Stream extends Component {
   dragover_handler = (event) => {
     event.stopPropagation();
@@ -15,10 +14,7 @@ class Stream extends Component {
     event.preventDefault();
     console.log('RECEIVED IMAGE EVENT', event);
 
-    let dt = event.dataTransfer;
-    let files = dt.files;
-    let images = [];
-    console.log(dt);
+    let files = event.dataTransfer.files;
 
     for (let i = 0, file; file=files[i]; i++) {
       if (file.type.match(/image.*/)) {
@@ -26,14 +22,8 @@ class Stream extends Component {
         let image;
 
         reader.onload = (e2) => {
-          // finished reading file data.
-          //var img = document.createElement('img');
-          //img.src= e2.target.result;
-          //document.body.appendChild(img);
           image = e2.target.result;
-          images.push(image);
-          console.log(images);
-          this.props.onReceiveImages(images);
+          this.props.onReceiveImage(image);
         }
 
         reader.readAsDataURL(file); // start reading the file data.
@@ -58,7 +48,7 @@ class Stream extends Component {
 
 Stream.propTypes = {
   images: PropTypes.array.isRequired,
-  onReceiveImages: PropTypes.func.isRequired
+  onReceiveImage: PropTypes.func.isRequired
 }
 
 export default Stream;
