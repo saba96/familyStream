@@ -4,6 +4,9 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case '@@redux/INIT':
+      console.log('Initializing...');
+      return state;
     case 'UPLOAD_IMAGE':
       return uploadImage(state, action);
     default:
@@ -16,8 +19,6 @@ const reducer = (state = initialState, action) => {
 
 const uploadImage = (state, action) => {
   let newState = Object.assign({}, state);
-  console.log(action.image);
-  console.log(state);
   fetch('/images', {
     method: 'POST',
     headers: {

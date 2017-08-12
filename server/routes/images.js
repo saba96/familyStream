@@ -8,8 +8,7 @@ router.get('/', function(req, res, next) {
 
 /* POST images */
 router.post('/', function(req, res, next) {
-  console.log(req.body);
-  res.send('post recognized');
+  res.send('POST acknowledged.');
 });
 
 module.exports = router;

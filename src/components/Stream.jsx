@@ -6,13 +6,11 @@ class Stream extends Component {
     event.stopPropagation();
     event.preventDefault();
     event.dataTransfer.dropEffect = 'copy';
-    console.log('DRAGOVER EVENT', event);
   }
 
   drop_handler = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    console.log('RECEIVED IMAGE EVENT', event);
 
     let files = event.dataTransfer.files;
 
@@ -32,7 +30,6 @@ class Stream extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div
         id='stream'
