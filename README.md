@@ -6,10 +6,11 @@ This is IMAGESTREAM.  IMAGESTREAM is a viral image streaming website.  Anyone ca
 IMAGESTREAM can be deployed with the following steps:
 
 1. `git clone https://github.com/GameKyuubi/imagestream`
-2. `cd imagestream`
-3. `npm install` or preferably `yarn install`
-4. `yarn server` to start the server
-5. `yarn client` to start the client
+2. Install/start Redis.
+3. `cd imagestream`
+4. `npm install` or preferably `yarn install`
+5. `yarn server` to start the server
+6. `yarn client` to start the client
 
 The server will run on port 9000 and the client should open automatically at `http://localhost:3000`
 
@@ -19,3 +20,4 @@ Tech used:
 * React
 * Redux
 * React-redux
+* Redis
