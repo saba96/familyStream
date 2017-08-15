@@ -4,12 +4,15 @@ html {
   font-family: sans-serif;
 }
 
-#stream-container {
+.stream-image {
+  border-radius: 5px;
+  height: 150px;
+  padding: 20px;
 }
 
 #stream {
-  height: 300px;
-
+  border-radius: 10px;
+  min-height: 150px;
   background-color: #447684;
 }
 
