@@ -36,8 +36,8 @@ class Stream extends Component {
 
     let files = event.dataTransfer.files;
 
-    for (let i = 0, file; file=files[i]; i++) {
-      if (file.type.match(/image.*/)) {
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].type.match(/image.*/)) {
         let reader = new FileReader();
         let image;
 
@@ -46,7 +46,7 @@ class Stream extends Component {
           this.props.onReceiveImage(image);
         }
 
-        reader.readAsDataURL(file); // start reading the file data.
+        reader.readAsDataURL(files[i]); // start reading the file data.
       }
     }
   }
@@ -59,7 +59,7 @@ class Stream extends Component {
         onDragOver={this.dragover_handler}
         onDragEnd={this.dragend_handler}
       >
-        {this.props.images.map((imageData, idx) => <img className='stream-image' src={imageData}></img>)}
+        {this.props.images.map((imageData, idx) => <img key={idx} alt='' className='stream-image' src={imageData}></img>)}
       </div>
     );
   }
