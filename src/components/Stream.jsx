@@ -59,7 +59,7 @@ class Stream extends Component {
         onDragOver={this.dragover_handler}
         onDragEnd={this.dragend_handler}
       >
-        {this.props.images.map((imageData, idx) => <img src={imageData}></img>)}
+        {this.props.images.map((imageData, idx) => <img className='stream-image' src={imageData}></img>)}
       </div>
     );
   }
