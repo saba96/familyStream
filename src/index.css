@@ -17,10 +17,12 @@ h2 {
 #stream {
   border-radius: 10px;
   min-height: 150px;
-  background-color: #457684;
+  background-color: rgba(69, 118, 132, 0.5);
+  /* #457684; */
 }
 
 #background-box {
+  z-index: -1;
   display: flex;
   position: fixed;
   height: 100%;
