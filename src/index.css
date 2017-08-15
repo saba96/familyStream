@@ -10,9 +10,29 @@ html {
   padding: 20px;
 }
 
+h2 {
+  color: #022A35;
+}
+
 #stream {
   border-radius: 10px;
   min-height: 150px;
-  background-color: #447684;
+  background-color: #457684;
 }
 
+#background-box {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-text {
+  color: #104250;
+  font-size: 30px;
+}
