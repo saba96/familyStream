@@ -5,11 +5,13 @@ html {
 }
 
 .stream-image {
+  border-radius: 5px;
   height: 150px;
   padding: 20px;
 }
 
 #stream {
+  border-radius: 10px;
   min-height: 150px;
   background-color: #447684;
 }
