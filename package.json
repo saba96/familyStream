@@ -8,14 +8,18 @@
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
+    "freeice": "^2.2.0",
     "morgan": "~1.8.1",
+    "peerjs": "^0.3.14",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.11",
     "redis": "^2.8.0",
     "redux": "^3.7.2",
-    "serve-favicon": "~2.4.2"
+    "redux-module-builder": "^0.3.2",
+    "serve-favicon": "~2.4.2",
+    "simplewebrtc": "^3.0.1"
   },
   "scripts": {
     "server": "node ./server/bin/www",
