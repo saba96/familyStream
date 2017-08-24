@@ -5,7 +5,8 @@ import { uploadImage, setImages } from '../actions/Stream';
 
 const mapStateToProps = state => {
   return {
-    images: state.images
+    images: state.images,
+    view: state.view
   }
 }
 

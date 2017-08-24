@@ -1,9 +1,11 @@
 
 const initialState = {
-  images: []
+  images: [],
+  view: 'Home'
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(state)
   switch (action.type) {
     case '@@redux/INIT':
       console.log('Initializing...');
@@ -12,6 +14,10 @@ const reducer = (state = initialState, action) => {
       return uploadImage(state, action);
     case 'SET_IMAGES':
       return setImages(state, action);
+    case 'IMAGE_STREAM':
+      return Object.assign({}, state, {view: 'ImageStream'});
+    case 'VIDEO_STREAM':
+      return Object.assign({}, state, {view: 'VideoStream'})
     default:
       console.log('ACTION:', action);
       console.log('STATE:', state);

@@ -15,7 +15,7 @@ class WebRTC extends Component {
    });
    webrtc.on('readyToCall', function () {
     // you can name it anything
-    webrtc.joinRoom('your awesome room name');
+    webrtc.joinRoom('Saba');
   });
   }
   render() {
