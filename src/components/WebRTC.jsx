@@ -21,19 +21,6 @@ class WebRTC extends Component {
   render() {
     return (
       <div className='WebRTC'>
-        <h4>Getting started</h4>
-        <ol>
-          <li>Type a channel name and click <strong>create</strong></li>
-          <li>Open this page in another tab</li>
-          <li>Type the same channel name in another tab page and click <strong>join</strong></li>
-          <li>Wait several seconds and start chatting!</li>
-        </ol>
-    
-        <div>
-          <input type="text" placeholder="Channel name" />
-          <button >Create</button>
-          <button >Join</button>
-        </div>
         <video height="300" id="localVideo"></video>
         <div id="remotesVideos"></div>
       </div>

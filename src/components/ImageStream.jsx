@@ -7,6 +7,7 @@ class ImageStream extends Component {
 	render() {
 		return (
 			<div className='App'>
+				<h1>Family Image Stream</h1>
 				<div className='stream-container'>
 					<h2>#IMAGESTREAM</h2>
 					<Stream />
