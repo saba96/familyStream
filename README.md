@@ -1,11 +1,12 @@
 welcome to
 <h1>README.md</h1>
-This is IMAGESTREAM.  IMAGESTREAM is a viral image streaming website.  Anyone can upload anything and no images are cached for longer than 30 seconds.
+In this application people can share images with their family members, and they also can make secure call with them.
+Note: This project is built on IMAGESTREAM project(https://github.com/GameKyuubi/imagestream).
 
 <h2>Deployment</h2>
-IMAGESTREAM can be deployed with the following steps:
+you can deploy it with the following steps:
 
-1. `git clone https://github.com/GameKyuubi/imagestream`
+1. git clone
 2. Install/start Redis.
 3. `cd imagestream`
 4. `npm install` or preferably `yarn install`
@@ -21,3 +22,4 @@ Tech used:
 * Redux
 * React-redux
 * Redis
+* WEBRTC
