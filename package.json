@@ -7,7 +7,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
-    "express": "~4.15.2",
+    "express": "~4.17.3",
     "freeice": "^2.2.0",
     "morgan": "~1.8.1",
     "peerjs": "^0.3.14",
